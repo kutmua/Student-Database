@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="container pb-5">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-center title">База данных студентов</h1>
+      </div>
+    </div>
+
+    <div class="filters row">
+      <div class="filters__main-container col-12 shadow">
+        <div class="filters__container">
+          <h3>
+            Фильтры:
+          </h3>
+          <div class="filters__input-container mb-2">
+            <input class="filters__input filters__input_full-name input form-control" type="text" placeholder="ФИО">
+          </div>
+          <div class="filters__input-container mb-2">
+            <input class="filters__input filters__input_faculty input form-control" type="text" placeholder="Факультет">
+          </div>
+          <div class="filters__input-container mb-2">
+            <input class="filters__input filters__input_start-year input form-control" type="number" placeholder="Год начала обучения" onkeypress="this.value=this.value.substring(0,3);">
+          </div>
+          <div class="filters__input-container mb-2">
+            <input class="filters__input filters__input_end-year input form-control" type="number" placeholder="Год окончания обучения" onkeypress="this.value=this.value.substring(0,3);">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="data__container row">
+      <div class="data__students col-6 pb-3 pt-3 shadow" data-bs-spy="scroll">
+        <table class="students__list table">
+          <thead>
+            <tr class="line">
+              <td class="student__full-name col custom-btn">ФИО</td>
+              <td class="student__date col custom-btn">Дата рождения</td>
+              <td class="student__year col custom-btn">Год начала обучения</td>
+              <td class="student__faculty col custom-btn">Факультет</td>
+            </tr>
+          </thead>
+
+        </table>
+      </div>
+
+      <div class="input__container col-6 pb-3 pt-3 shadow flex">
+        <form class="data__form" action="">
+          <h2 class="text-center">Новый студент</h2>
+
+          <div class="form__container mb-2">
+            <input class="surname__student form-control input" type="text" placeholder="Фамилия*" max="30" required>
+          </div>
+
+          <div class="form__container mb-2">
+            <input class="name__student form-control input" type="text" placeholder="Имя*" max="30" required>
+          </div>
+
+          <div class="form__container mb-2">
+            <input class="patronymic__student form-control input" type="text" placeholder="Отчество*" max="30" required>
+          </div>
+
+          <div class="form__container form__container--birth-date mb-2">
+            <input class="birth-date__student form-control input" type="date" placeholder="Дата рождения*" min="1900-01-01" required>
+            <span class="birth-date__student-container">Некорректная дата рождения!</span>
+          </div>
+
+          <div class="form__container form__container--year mb-2">
+            <input class="year__student form-control input" type="number" placeholder="Год начала обучения*" onkeypress="this.value=this.value.substring(0,3);" min="2000" required>
+            <span class="year__student-container">Некорректный год начала обучения!</span>
+          </div>
+
+          <div class="form__container mb-2">
+            <input class="faculty__student form-control input" type="text" placeholder="Факультет*" max="30" required>
+          </div>
+
+          <span class="form__errors flex p-2">Не все поля заполнены*</span>
+          <span class="input__error flex p-2">Неправильно заполнено поле даты рождения или поле год начала обучения*</span>
+        </form>
+
+        <div class="btn__container d-grid gap-2">
+          <button class="btn__save btn btn-success btn-lg">Добавить студента</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script defer src="scripts/script.js"></script>
+</body>
+</html>
